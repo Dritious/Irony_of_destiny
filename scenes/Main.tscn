@@ -1,29 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce2e74ytukv5g"]
+[gd_scene load_steps=9 format=3 uid="uid://ce2e74ytukv5g"]
 
-[ext_resource type="PackedScene" uid="uid://xy4fvi714i4y" path="res://scenes/slingshot/Slingshot.tscn" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://xy4fvi714i4y" path="res://scenes/slingshot/Player.tscn" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://c82dkburqjoxk" path="res://scripts/main.gd" id="1_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://ca1i78d6d153l" path="res://scenes/enemies/Robot.tscn" id="2_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://blp86rck6p2by" path="res://scenes/LevelMap.tscn" id="2_rvslj"]
+[ext_resource type="Script" uid="uid://b47kuu2rv5cdo" path="res://scripts/spawner.gd" id="3_rarhs"]
+[ext_resource type="PackedScene" uid="uid://gyj7aer54jf6" path="res://scenes/Button.tscn" id="6_c01mt"]
 
 [sub_resource type="Curve2D" id="Curve2D_elqb8"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 44, 602, 0, 0, 0, 0, 1077, 603, 0, 0, 0, 0, 1083, 465, 0, 0, 0, 0, 50, 448, 0, 0, 0, 0, 46, 355, 0, 0, 0, 0, 1078, 362, 0, 0, 0, 0, 1083, 247, 0, 0, 0, 0, 46, 251, 0, 0, 0, 0, 42, 109, 0, 0, 0, 0, 564, 105)
+"points": PackedVector2Array(0, 0, 0, 0, 204, 567, 0, 0, 0, 0, 935, 570, 0, 0, 0, 0, 935, 472, 0, 0, 0, 0, 205, 475, 0, 0, 0, 0, 203, 372, 0, 0, 0, 0, 935, 374, 0, 0, 0, 0, 940, 174, 0, 0, 0, 0, 205, 182, 0, 0, 0, 0, 211, 84, 0, 0, 0, 0, 560, 78, 0, 0, 0, 0, 887, 80)
 }
-point_count = 10
+point_count = 11
+
+[sub_resource type="GDScript" id="GDScript_vcsgt"]
+script/source = "extends Path2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_vcsgt")
 
-[node name="Slingshot" parent="." instance=ExtResource("1_elqb8")]
-position = Vector2(563.99994, 102)
-scale = Vector2(0.48000002, 0.48000002)
-metadata/_edit_lock_ = true
+[node name="LevelMap" parent="." instance=ExtResource("2_rvslj")]
+light_mask = 512
+visibility_layer = 512
+position = Vector2(131, 7.000001)
+scale = Vector2(0.3053509, 0.3053509)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_elqb8")
+script = SubResource("GDScript_vcsgt")
 
-[node name="Robot" parent="Path2D" instance=ExtResource("2_0bbpv")]
-position = Vector2(43, 601)
-scale = Vector2(1.960001, 1.960001)
+[node name="Spawner" type="Node2D" parent="Path2D"]
+position = Vector2(204, 566)
+script = ExtResource("3_rarhs")
+enemy_scene = ExtResource("2_0bbpv")
 
-[node name="LevelMap" parent="." instance=ExtResource("2_rvslj")]
-visible = false
-metadata/_edit_lock_ = true
+[node name="Button" parent="." instance=ExtResource("6_c01mt")]
+anchors_preset = 0
+offset_left = 473.0
+offset_top = 208.0
+offset_right = 981.0
+offset_bottom = 700.0
+scale = Vector2(0.36000246, 0.36000246)
+
+[node name="Slingshot" parent="." instance=ExtResource("1_elqb8")]
+position = Vector2(570, 116)
+scale = Vector2(0.52000487, 0.52000487)

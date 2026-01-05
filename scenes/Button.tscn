@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gyj7aer54jf6"]
+
+[ext_resource type="Script" uid="uid://58kah1d6ofr3" path="res://scripts/button.gd" id="1_1xt0e"]
+[ext_resource type="Texture2D" uid="uid://tlo4vtfnoc1" path="res://assets/14240c270afccc0baac27bfa285ed9df.jpg" id="2_rtit6"]
+
+[node name="Button" type="Button"]
+anchors_preset = -1
+offset_left = -152.0
+offset_top = -154.0
+offset_right = 356.0
+offset_bottom = 338.0
+scale = Vector2(0.5999994, 0.5999994)
+icon = ExtResource("2_rtit6")
+script = ExtResource("1_1xt0e")

@@ -2,6 +2,7 @@ extends "res://scripts/enemies/AbstractEnemy.gd"
 
 
 @export var health = 300
+@export var enemy_damage = 1
 # Called when the node enters the scene tree for the first time.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,28 +13,41 @@ func _process(delta: float) -> void:
 #Это функция Севы, её не трожь
 func take_damage(damage):
 	health-=damage
-
+	
+func hit_player():
+	queue_free()
+	return enemy_damage
+	
 @export var patrol_path: NodePath
 @export var speed: float = 100.0
 
-var patrol_points: Array = []
-var patrol_index: int = 0
+var path_curve: Curve2D
+var distance_travelled: float = 0.0
+var path_length: float = 0.0
+
 
 func _ready():
 	var path = get_parent() as Path2D
-	# Получаем массив точек кривой
-	patrol_points = path.curve.get_baked_points()
+	path_curve = path.curve
+	path_length = path_curve.get_baked_length()
 
 func _physics_process(delta):
-	var target = patrol_points[patrol_index]
+	# Двигаемся по пути по расстоянию
+	distance_travelled += speed * delta
 	
-	# Расстояние до цели
-	if global_position.distance_to(target) < 4:
-		patrol_index = (patrol_index + 1) % patrol_points.size()
-		target = patrol_points[patrol_index]
+	# Зациклили путь
+	if distance_travelled > path_length:
+		distance_travelled = 0
 
-	# Направление к точке
-	var dir = (target - global_position).normalized()
+	# Получаем позицию на кривой по расстоянию
+	var target_pos = path_curve.sample_baked(distance_travelled, true)
 	
-	velocity = dir * speed
+	# Направление к следующей точке
+	var dir = (target_pos - global_position)
+	
+	# Если цель близко, не телепортировать
+	if dir.length() > 1:
+		velocity = dir.normalized() * speed
+	else:
+		velocity = Vector2.ZERO
 	move_and_slide()

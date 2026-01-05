@@ -1,14 +1,15 @@
 extends "res://scripts/projectiles/AbsrtactProjectile.gd"
 
-
+@export var damage = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	contact_monitor = true
+	max_contacts_reported = 10# Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func on_hit(damage):
-	damage = 50
+func on_hit():
 	queue_free()
+	return damage
