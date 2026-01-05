@@ -10,6 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Irony_of_desteny"
+config/name="Irony_of_destiny"
+run/main_scene="uid://ce2e74ytukv5g"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Irony_of_destiny"

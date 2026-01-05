@@ -1,0 +1,20 @@
+[gd_scene load_steps=9 format=3 uid="uid://blp86rck6p2by"]
+
+[ext_resource type="Script" uid="uid://b6jsyqy166dgy" path="res://scripts/level_grid.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bbva17nwsefce" path="res://assets/snow.png" id="2_1p4ig"]
+[ext_resource type="Texture2D" uid="uid://jaapn8e5hgi1" path="res://assets/RoadLeft-Right.png" id="3_1t1yx"]
+[ext_resource type="Texture2D" uid="uid://bnxsqwgsousa5" path="res://assets/SnowRoadRight-Left.png" id="4_pb08s"]
+[ext_resource type="Texture2D" uid="uid://d2p73woku8k03" path="res://assets/SnowRoadUp.png" id="5_g4ooc"]
+[ext_resource type="Texture2D" uid="uid://dnhds8586w0y8" path="res://assets/river.png" id="6_g7byu"]
+[ext_resource type="Texture2D" uid="uid://dpk4io1x7d5cg" path="res://assets/RiverSnowUp.png" id="7_g4ooc"]
+[ext_resource type="Texture2D" uid="uid://3jivggspk6v" path="res://assets/RiverSnowDown.png" id="8_g7byu"]
+
+[node name="LevelMap" type="Node2D"]
+script = ExtResource("1")
+texture = ExtResource("2_1p4ig")
+road_left_to_right_texture = ExtResource("3_1t1yx")
+road_right_to_left_texture = ExtResource("4_pb08s")
+road_vertical_texture = ExtResource("5_g4ooc")
+river_texture = ExtResource("6_g7byu")
+river_top_texture = ExtResource("7_g4ooc")
+river_bottom_texture = ExtResource("8_g7byu")
