@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://omv38selus2"]
+[gd_scene load_steps=2 format=3 uid="uid://d03n7ljdcym55"]
 
 [ext_resource type="Script" path="res://scripts/level_grid.gd" id="1"]
 

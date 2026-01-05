@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce2e74ytukv5g"]
+[gd_scene load_steps=3 format=3 uid="uid://ce2e74ytukv5g"]
 
 [ext_resource type="PackedScene" uid="uid://xy4fvi714i4y" path="res://scenes/slingshot/Slingshot.tscn" id="1_elqb8"]
+
+[sub_resource type="Curve2D" id="Curve2D_elqb8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 183, 489, 0, 0, 0, 0, 867, 495, 0, 0, 0, 0, 850, 317, 0, 0, 0, 0, 199, 328, 0, 0, 0, 0, 197, 217, 0, 0, 0, 0, 844, 236, 0, 0, 0, 0, 829, 157)
+}
+point_count = 7
 
 [node name="Main" type="Node2D"]
 
 [node name="Slingshot" parent="." instance=ExtResource("1_elqb8")]
-position = Vector2(594, 288)
-max_pull_distance = 100000.0
-launch_multiplier = 30.0
+position = Vector2(563.99994, 102)
+scale = Vector2(0.48000002, 0.48000002)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_elqb8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(183, 489)
+rotation = 0.008771705

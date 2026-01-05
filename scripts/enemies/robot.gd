@@ -1,7 +1,7 @@
 extends "res://scripts/enemies/AbstractEnemy.gd"
 
 
-
+@export var health = 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 
 #Это функция Севы, её не трожь
 func take_damage():
+	
 	pass
