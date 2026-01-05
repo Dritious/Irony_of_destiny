@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://2bo11g0n761o"]
+[gd_scene load_steps=2 format=3 uid="uid://2bo11g0n761o"]
+
+[ext_resource type="Texture2D" uid="uid://bp2qm1iojxbvn" path="res://assets/5183.jpg" id="1_x6ryn"]
 
 [node name="CenterOfSlingshot" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.536743e-07, 1.4424324e-05)
+scale = Vector2(0.8290156, 0.94814825)
+texture = ExtResource("1_x6ryn")
