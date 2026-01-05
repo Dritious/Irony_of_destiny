@@ -1,7 +1,5 @@
-@abstract
-extends Node
+extends CharacterBody2D
 
-#Это абстрактный класс для всех врагов(если делать будем ещё)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,4 +10,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-@abstract func take_damage()
+	

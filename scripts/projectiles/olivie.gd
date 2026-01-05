@@ -9,5 +9,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func on_hit():
-	pass
+func on_hit(damage):
+	damage = 50
+	queue_free()

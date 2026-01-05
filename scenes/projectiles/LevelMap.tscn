@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://omv38selus2"]
+
+[ext_resource type="Script" uid="uid://b6jsyqy166dgy" path="res://scripts/level_grid.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bbva17nwsefce" path="res://assets/snow.png" id="2_1p4ig"]
+
+[node name="LevelMap" type="Node2D"]
+script = ExtResource("1")
+texture = ExtResource("2_1p4ig")

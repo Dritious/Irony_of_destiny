@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://b7qhyg22vno7n" path="res://scripts/projectiles/olivie.gd" id="1_jmvm0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmvm0"]
-size = Vector2(31.743671, 48.169907)
+size = Vector2(48, 32)
 
 [node name="Olivie" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
 gravity_scale = 0.0
 script = ExtResource("1_jmvm0")
 
@@ -16,6 +18,4 @@ scale = Vector2(0.041239318, 0.036161724)
 texture = ExtResource("1_jcp8n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.9073486e-06)
-rotation = -1.576127
 shape = SubResource("RectangleShape2D_jmvm0")

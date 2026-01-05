@@ -1,22 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce2e74ytukv5g"]
+[gd_scene load_steps=5 format=3 uid="uid://ce2e74ytukv5g"]
 
 [ext_resource type="PackedScene" uid="uid://xy4fvi714i4y" path="res://scenes/slingshot/Slingshot.tscn" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://ca1i78d6d153l" path="res://scenes/enemies/Robot.tscn" id="2_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://blp86rck6p2by" path="res://scenes/LevelMap.tscn" id="2_rvslj"]
 
 [sub_resource type="Curve2D" id="Curve2D_elqb8"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 183, 489, 0, 0, 0, 0, 867, 495, 0, 0, 0, 0, 850, 317, 0, 0, 0, 0, 199, 328, 0, 0, 0, 0, 197, 217, 0, 0, 0, 0, 844, 236, 0, 0, 0, 0, 829, 157)
+"points": PackedVector2Array(0, 0, 0, 0, 44, 602, 0, 0, 0, 0, 1077, 603, 0, 0, 0, 0, 1083, 465, 0, 0, 0, 0, 50, 448, 0, 0, 0, 0, 46, 355, 0, 0, 0, 0, 1078, 362, 0, 0, 0, 0, 1083, 247, 0, 0, 0, 0, 46, 251, 0, 0, 0, 0, 42, 109, 0, 0, 0, 0, 564, 105)
 }
-point_count = 7
+point_count = 10
 
 [node name="Main" type="Node2D"]
 
 [node name="Slingshot" parent="." instance=ExtResource("1_elqb8")]
 position = Vector2(563.99994, 102)
 scale = Vector2(0.48000002, 0.48000002)
+metadata/_edit_lock_ = true
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_elqb8")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(183, 489)
-rotation = 0.008771705
+[node name="Robot" parent="Path2D" instance=ExtResource("2_0bbpv")]
+position = Vector2(43, 601)
+scale = Vector2(1.960001, 1.960001)
+
+[node name="LevelMap" parent="." instance=ExtResource("2_rvslj")]
+visible = false
+metadata/_edit_lock_ = true
