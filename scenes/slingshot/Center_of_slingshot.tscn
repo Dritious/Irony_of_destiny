@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://2bo11g0n761o"]
+
+[node name="CenterOfSlingshot" type="Node2D"]
