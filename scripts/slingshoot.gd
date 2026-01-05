@@ -1,50 +1,69 @@
 extends Node2D
 
-@export var max_radius: float = 150.0   # макс. длина растяжения
-@export var launch_force: float = 15.0  # множитель силы
+# --- Настройки ---
+@export var bird_scenes: Array[PackedScene] = []
+@export var max_pull_distance: float = 200.0
+@export var launch_multiplier: float = 5.0
 
-var dragging: bool = false
+# --- Данные ---
+var birds_queue: Array[PackedScene] = []
+var current_bird: RigidBody2D = null
+var dragging = false
+var can_start_drag =false
+@onready var center=get_node("CenterOfSlingshot")
 
-@onready var center = $"res://scenes/slingshot/Center_of_slingshot.tscn"
-@onready var projectile = $"res://scenes/projectiles/Olivie.tscn"
+func _ready():
+	birds_queue = bird_scenes.duplicate()
+	birds_queue.shuffle()
+	await get_tree().create_timer(0.1).timeout
+	_spawn_next_bird()
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.pressed:
-				# Начинаем тянуть если кликнули близко к птице
-			var dist = (get_global_mouse_position() - projectile.global_position).length()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		# начать drag только если мышь нажата и позиция близко к птице
+		if event.pressed and can_start_drag:
+			var dist = (get_global_mouse_position() - current_bird.global_position).length()
 			if dist < 30:
 				dragging = true
-				#projectile.mode = RigidBody2D.MODE_CHARACTER  # отключаем физику на время тащения
-			else:
-				if dragging:
-					_shoot()
-					dragging = false
+				can_start_drag = false
+		# когда мышь отпущена и мы действительно drag’им — стрелять
+		elif !event.pressed and dragging and !can_start_drag:
+			_launch_bird()
+			dragging = false
 
-func _process(delta):
-	if dragging:
-		_drag_projectile()
-
-func _drag_projectile():
+func _process(_delta):
+	if dragging and current_bird:
+		_drag_bird()
+		
+func _drag_bird():
 	var mouse_pos = get_global_mouse_position()
 	var dir = mouse_pos - center.global_position
+	if dir.length() > max_pull_distance:
+		dir = dir.normalized() * max_pull_distance
+	current_bird.global_position = center.global_position + dir
 
-	# Ограничиваем растяжение радиусом
-	if dir.length() > max_radius:
-		dir = dir.normalized() * max_radius
+func _launch_bird():
+	if not current_bird:
+		return
+	var impulse_dir = -(current_bird.global_position - center.global_position)
+	var impulse = impulse_dir * launch_multiplier
+	current_bird.apply_impulse(impulse)
 
-	# Передвигаем птицу
-	projectile.global_position = center.global_position + dir
+	current_bird = null
 
-func _shoot():
-	# Снова включаем физику
-	#projectile.mode = RigidBody2D.MODE_RIGID
+	await get_tree().create_timer(0.5).timeout
+	_spawn_next_bird()
 
-	# Импульс: направлен от растянутой позиции к центру (отталкивание)
-	var dir = center.global_position - projectile.global_position
-	var impulse = dir * launch_force
+func _spawn_next_bird():
+	var next_scene: PackedScene = birds_queue.pop_front()
+	if next_scene==null:
+		print("Все птицы выпущены!")
+		return
+	var bird_instance: RigidBody2D = next_scene.instantiate()
 
-	projectile.apply_impulse(Vector2.ZERO, impulse)
-
-	# Можно отключить скрипт перетаскивания, если птица уже вылетела
-	set_process(false)
+	bird_instance.global_position = center.global_position
+	
+	current_bird = bird_instance
+	get_tree().current_scene.add_child(current_bird)
+	dragging = false
+	can_start_drag = true

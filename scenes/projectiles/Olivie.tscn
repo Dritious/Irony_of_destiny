@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://baiflvqm180fy"]
+[gd_scene load_steps=4 format=3 uid="uid://baiflvqm180fy"]
 
-[node name="Olivie" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b0nmqq6tdntbp" path="res://assets/original.jpg" id="1_jcp8n"]
+[ext_resource type="Script" uid="uid://b7qhyg22vno7n" path="res://scripts/projectiles/olivie.gd" id="1_jmvm0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmvm0"]
+size = Vector2(126.41349, 175.98816)
+
+[node name="Olivie" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_jmvm0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1508547, 0.14521639)
+texture = ExtResource("1_jcp8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.7451801, -0.22341353)
+rotation = -1.576127
+shape = SubResource("RectangleShape2D_jmvm0")

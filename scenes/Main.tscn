@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://ce2e74ytukv5g"]
+[gd_scene load_steps=2 format=3 uid="uid://ce2e74ytukv5g"]
+
+[ext_resource type="PackedScene" uid="uid://xy4fvi714i4y" path="res://scenes/slingshot/Slingshot.tscn" id="1_elqb8"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Slingshot" parent="." instance=ExtResource("1_elqb8")]
+position = Vector2(594, 288)
+max_pull_distance = 100000.0
+launch_multiplier = 30.0

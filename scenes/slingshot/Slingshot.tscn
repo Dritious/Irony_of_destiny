@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://xy4fvi714i4y"]
+[gd_scene load_steps=4 format=3 uid="uid://xy4fvi714i4y"]
+
+[ext_resource type="PackedScene" uid="uid://2bo11g0n761o" path="res://scenes/slingshot/Center_of_slingshot.tscn" id="1_obob0"]
+[ext_resource type="Script" uid="uid://jj1e7yh0suyg" path="res://scripts/slingshoot.gd" id="1_yto1o"]
+[ext_resource type="PackedScene" uid="uid://baiflvqm180fy" path="res://scenes/projectiles/Olivie.tscn" id="2_yto1o"]
 
 [node name="Slingshot" type="Node2D"]
+script = ExtResource("1_yto1o")
+bird_scenes = Array[PackedScene]([ExtResource("2_yto1o"), ExtResource("2_yto1o"), ExtResource("2_yto1o")])
+
+[node name="CenterOfSlingshot" parent="." instance=ExtResource("1_obob0")]
