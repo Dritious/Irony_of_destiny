@@ -1,4 +1,29 @@
-[gd_scene load_steps=12 format=3 uid="uid://blp86rck6p2by"]
+<<<<<<< HEAD
+[gd_scene load_steps=22 format=3 uid="uid://omv38selus2"]
+
+[ext_resource type="Script" uid="uid://b6jsyqy166dgy" path="res://scripts/level_grid.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bbva17nwsefce" path="res://assets/snow.png" id="2_1p4ig"]
+[ext_resource type="Texture2D" uid="uid://6rr3o7j2itx" path="res://assets/SnowRoadLeft-Right.png" id="3_1q0xf"]
+[ext_resource type="Texture2D" uid="uid://dpk4io1x7d5cg" path="res://assets/RiverSnowUp.png" id="4_g7byu"]
+[ext_resource type="Texture2D" uid="uid://dnhds8586w0y8" path="res://assets/river.png" id="4_pb08s"]
+[ext_resource type="Texture2D" uid="uid://bnxsqwgsousa5" path="res://assets/SnowRoadRight-Left.png" id="4_vwea5"]
+[ext_resource type="Texture2D" uid="uid://3jivggspk6v" path="res://assets/RiverSnowDown.png" id="5_ephlg"]
+[ext_resource type="Texture2D" uid="uid://d2p73woku8k03" path="res://assets/SnowRoadUp.png" id="5_np71j"]
+[ext_resource type="Texture2D" uid="uid://b8dqlo8sa1jxs" path="res://assets/Bridge.png" id="6_65iot"]
+[ext_resource type="Texture2D" uid="uid://4e6h6fqet8l0" path="res://assets/BridgeUp.png" id="7_e756t"]
+[ext_resource type="Texture2D" uid="uid://5lx2k51ifcwm" path="res://assets/BridgeDown.png" id="8_n5g2j"]
+[ext_resource type="Texture2D" uid="uid://c7iqlivqlwr5d" path="res://assets/dump.png" id="12_cj3ff"]
+[ext_resource type="Texture2D" uid="uid://0mnb8ahbhkqf" path="res://assets/elka.png" id="13_1fwkh"]
+[ext_resource type="Texture2D" uid="uid://bn7gpnda71y6v" path="res://assets/snowLeft.png" id="13_np71j"]
+[ext_resource type="Texture2D" uid="uid://6fcvml1hor02" path="res://assets/SnowUp.png" id="14_cj3ff"]
+[ext_resource type="Texture2D" uid="uid://c2n88c0ai3gbk" path="res://assets/SnowRight.png" id="15_1fwkh"]
+[ext_resource type="Texture2D" uid="uid://bcw72qhi5scyb" path="res://assets/SnowDown.png" id="16_to2hn"]
+[ext_resource type="Texture2D" uid="uid://427meuuiyxid" path="res://assets/ZAVOD.png" id="18_vwea5"]
+[ext_resource type="Texture2D" uid="uid://6ddx60nnweel" path="res://assets/riverDump.png" id="19_1fwkh"]
+[ext_resource type="Texture2D" uid="uid://dyvhttt6rvbhr" path="res://assets/Evgeni (2).png" id="20_to2hn"]
+[ext_resource type="Texture2D" uid="uid://dysiwx4pw375q" path="res://assets/PANELKA.png" id="21_qtox6"]
+=======
+[gd_scene load_steps=9 format=3 uid="uid://blp86rck6p2by"]
 
 [ext_resource type="Script" uid="uid://b6jsyqy166dgy" path="res://scripts/level_grid.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bbva17nwsefce" path="res://assets/snow.png" id="2_1p4ig"]
@@ -8,29 +33,40 @@
 [ext_resource type="Texture2D" uid="uid://dnhds8586w0y8" path="res://assets/river.png" id="6_g7byu"]
 [ext_resource type="Texture2D" uid="uid://dpk4io1x7d5cg" path="res://assets/RiverSnowUp.png" id="7_g4ooc"]
 [ext_resource type="Texture2D" uid="uid://3jivggspk6v" path="res://assets/RiverSnowDown.png" id="8_g7byu"]
-[ext_resource type="Texture2D" uid="uid://bxlxtptydhhwp" path="res://assets/robot.jpg" id="9_65iot"]
-[ext_resource type="Texture2D" uid="uid://c7iqlivqlwr5d" path="res://assets/dump.png" id="10_e756t"]
-[ext_resource type="Texture2D" uid="uid://0mnb8ahbhkqf" path="res://assets/elka.png" id="11_n5g2j"]
+>>>>>>> 55637e2bf8daff20cf130b51bd42fb3abe60314c
 
 [node name="LevelMap" type="Node2D"]
 script = ExtResource("1")
 columns = 18
 rows = 13
 texture = ExtResource("2_1p4ig")
+<<<<<<< HEAD
+road_left_to_right_texture = ExtResource("3_1q0xf")
+road_right_to_left_texture = ExtResource("4_vwea5")
+road_vertical_texture = ExtResource("5_np71j")
+river_texture = ExtResource("4_pb08s")
+river_top_texture = ExtResource("4_g7byu")
+river_bottom_texture = ExtResource("5_ephlg")
+bridge_center_texture = ExtResource("6_65iot")
+bridge_top_texture = ExtResource("7_e756t")
+bridge_bottom_texture = ExtResource("8_n5g2j")
+dam_full_texture = ExtResource("12_cj3ff")
+angle_right_bottom_texture = ExtResource("13_1fwkh")
+angle_left_top_texture = ExtResource("13_1fwkh")
+snow_left_texture = ExtResource("13_np71j")
+snow_top_texture = ExtResource("14_cj3ff")
+snow_right_texture = ExtResource("15_1fwkh")
+snow_bottom_texture = ExtResource("16_to2hn")
+factory_texture = ExtResource("18_vwea5")
+import_texture = ExtResource("19_1fwkh")
+main_placeholder_texture = ExtResource("20_to2hn")
+corner_placeholder_texture = ExtResource("21_qtox6")
+show_grid = false
+=======
 road_left_to_right_texture = ExtResource("3_1t1yx")
 road_right_to_left_texture = ExtResource("4_pb08s")
 road_vertical_texture = ExtResource("5_g4ooc")
 river_texture = ExtResource("6_g7byu")
 river_top_texture = ExtResource("7_g4ooc")
 river_bottom_texture = ExtResource("8_g7byu")
-bridge_center_texture = ExtResource("9_65iot")
-bridge_top_texture = ExtResource("9_65iot")
-bridge_bottom_texture = ExtResource("9_65iot")
-dam_full_texture = ExtResource("10_e756t")
-angle_right_bottom_texture = ExtResource("9_65iot")
-angle_left_top_texture = ExtResource("9_65iot")
-snow_left_texture = ExtResource("9_65iot")
-snow_top_texture = ExtResource("9_65iot")
-snow_right_texture = ExtResource("9_65iot")
-snow_bottom_texture = ExtResource("9_65iot")
-tree_texture = ExtResource("11_n5g2j")
+>>>>>>> 55637e2bf8daff20cf130b51bd42fb3abe60314c
